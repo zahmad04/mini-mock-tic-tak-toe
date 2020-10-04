@@ -20,6 +20,6 @@ The aims of this session are to ensure that the system is working and that you a
 * In the terminal window (at teh bottom of the editor, type
 
 ```bash
-./submit
+./submit.sh
 ```
 
