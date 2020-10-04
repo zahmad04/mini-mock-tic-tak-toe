@@ -2,15 +2,24 @@
 <img src="images/python-logo.png" width="50" height="50"></img>
 
 # Fundamentals of Programming.
-## Numeric Operators
-### Part 1. - Starter
-Here we are going to run a _*starter*_
+## Python Environment.
+### Testing the system.
 
-[here is a link to a video](www.youtube.com)
+The aims of this session are to ensure that the system is working and that you are familiar with how to use the system.
+
+* Open the main.py file.
+* Press the green run button (top right corner of the screen) to execute the program.
+* Press the debug button to step through the program line by line.
+* In the editor, add the follwoing line at the top of the code
 
 ```python
-
-def here_is_some_python_code
-    pass
-
+# Name: <Insert Your name>
 ```
+
+* Run the program again to ensure that it still works.
+* In the terminal window (at teh bottom of the editor, type
+
+```bash
+./submit
+```
+
