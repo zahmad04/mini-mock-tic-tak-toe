@@ -5,7 +5,7 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0,parentdir) 
 
-from main import *
+# from starter import *
 
 class TestAssertionError(Exception):
     def __init__(self, expected, actual):
@@ -53,22 +53,45 @@ class TestEngine:
             
 
     def run(self):
+        pass
+        
+
+    
+class StarterTestEngine (TestEngine):
+
+    def __init__(self):
+        super().__init__();
+
+    def test_starter_1(self): 
+        user_input="Hello World"    
+        result = run(["python", "starter.py"], input=b"Hello World\n", capture_output=True)
+        print(result)
+        expected = b'Enter a word.The first letter is H\nThe last letter is d\n'
+        self.assertEqual(expected,  result.stdout, "\nExpected:\n{0}\nReceived:\n{1}".format(expected, result.stdout))
+
+    def run(self):
         self.runTest(self.test_starter_1)
-        self.runTest(self.test_starter_2)
+        #self.runTest(self.test_starter_2)
 
         return self.results
 
+class StarterTestEngine (TestEngine):
 
-    def test_starter_1(self):     
-        result = run(["python", "./lesson-files/starter.py"], input=b"\n", capture_output=True)
-        expected = b'20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n'
-        self.assertEqual(result.stdout, expected, "\nExpected:\n{0}\nReceived:\n{1}".format(expected, result.stdout))
+    def __init__(self):
+        super().__init__()
 
-    def test_starter_2(self):     
-        result = run(["python", "./lesson-files/starter.py"], input=b"\n", capture_output=True)
-        expected = b'20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n'
-        self.assertEqual(result.stdout, expected, "\nExpected:\n{0}\nReceived:\n{1}".format(expected, result.stdout))
+    def test_starter_1(self): 
+        user_input="Hello World."    
+        result = run(["python", "starter.py"], input=b"Hello World\n", capture_output=True)
+        print(result)
+        expected = b'Enter a word.The first letter is H\nThe last letter is d\n'.decode("UTF-8")
+        self.assertEqual(expected,  result.stdout.decode("UTF-8"), "\nExpected:\n{0}\nReceived:\n{1}".format(expected, result.stdout))
 
+    def run(self):
+        self.runTest(self.test_starter_1)
+        #self.runTest(self.test_starter_2)
+
+        return self.results
 
 
 """
@@ -93,7 +116,7 @@ def textRed():
     print(u"\u001b[31m")
 
 def createTestSuite ():
-    engine = TestEngine()
+    engine = StarterTestEngine()
 
     results = engine.run()
 
