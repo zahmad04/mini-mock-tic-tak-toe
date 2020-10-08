@@ -71,7 +71,7 @@ class StarterTestEngine (TestEngine):
 
     def test_def_is_correct(self):
         result = mySum(4, 5)
-        self.assertEqual(mySum(4, 5), 9, "\nExpected: 9.\nReceived:{0}".format(result))
+        self.assertEqual( 9, mySum(4, 5), "\nExpected: 9.\nReceived:{0}".format(result))
 
     def run(self):
         self.runTest(self.test_output_is_correct)
