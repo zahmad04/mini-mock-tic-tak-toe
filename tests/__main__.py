@@ -62,36 +62,23 @@ class StarterTestEngine (TestEngine):
     def __init__(self):
         super().__init__();
 
-    def test_starter_1(self): 
+    def test_output_is_correct(self): 
         user_input="Hello World"    
         result = run(["python", "starter.py"], input=b"Hello World\n", capture_output=True)
         print(result)
         expected = b'Enter a word.The first letter is H\nThe last letter is d\n'
         self.assertEqual(expected,  result.stdout, "\nExpected:\n{0}\nReceived:\n{1}".format(expected, result.stdout))
 
+    def test_def_is_correct(self):
+        result = mySum(4, 5)
+        self.assertEqual(mySum(4, 5), 9, "\nExpected: 9.\nReceived:{0}".format(result))
+
     def run(self):
-        self.runTest(self.test_starter_1)
-        #self.runTest(self.test_starter_2)
+        self.runTest(self.test_output_is_correct)
+        self.runTest(self.test_def_is_correct)
 
         return self.results
 
-class StarterTestEngine (TestEngine):
-
-    def __init__(self):
-        super().__init__()
-
-    def test_starter_1(self): 
-        user_input="Hello World."    
-        result = run(["python", "starter.py"], input=b"Hello World\n", capture_output=True)
-        print(result)
-        expected = b'Enter a word.The first letter is H\nThe last letter is d\n'.decode("UTF-8")
-        self.assertEqual(expected,  result.stdout.decode("UTF-8"), "\nExpected:\n{0}\nReceived:\n{1}".format(expected, result.stdout))
-
-    def run(self):
-        self.runTest(self.test_starter_1)
-        #self.runTest(self.test_starter_2)
-
-        return self.results
 
 
 """
