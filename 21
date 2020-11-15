@@ -1,0 +1,52 @@
+"""
+  Author:   Mr Salih
+  Date:     2020-11-05
+
+  21's = A game to reach 21.
+
+"""
+
+import random 
+
+def nextPlayer (player):
+
+  if player == 1:
+    return 2
+  else:
+    return 1
+
+def getTurnFromUser():
+  turn = int(input("Enter your turn"))
+  return turn 
+
+def getTurnFromComputer():
+  return random.randrange(1, 3)
+
+def getPlayerTurn(player):
+  if player == 1:
+    return getTurnFromUser()
+  else:
+    return getTurnFromComputer() 
+
+def displayWinner(player):
+  print("Player", player, "won")
+
+def playGame():
+
+  player = 2
+  total = 0
+
+  while total < 21:
+    player = nextPlayer(player)
+
+    turn = getPlayerTurn (player)
+
+    total = total + turn
+
+  displayWinner(player)
+
+
+
+if __name__ == "__main__":
+
+  playGame()
